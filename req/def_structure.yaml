@@ -1,0 +1,111 @@
+src:
+  structure.yaml:
+    content: "サイト・システム情報保存システムのプロジェクト構造定義"
+    dependency: []
+
+  app:
+    main.py:
+      content: "メインアプリケーションエントリーポイント"
+      dependency:
+        - src/app/site_saver.py
+        - src/app/system_saver.py
+        - src/app/logger.py
+
+    site_saver.py:
+      content: "サイト情報保存モジュール"
+      dependency:
+        - src/utils/web_scraper.py
+        - src/utils/file_manager.py
+        - src/config/settings.py
+
+    system_saver.py:
+      content: "システム情報保存モジュール"
+      dependency:
+        - src/utils/directory_scanner.py
+        - src/utils/file_manager.py
+        - src/config/settings.py
+
+    logger.py:
+      content: "ログ管理モジュール"
+      dependency:
+        - src/config/settings.py
+
+  config:
+    settings.py:
+      content: "アプリケーション設定管理"
+      dependency: []
+
+    env:
+      .env:
+        content: "基本環境変数"
+        dependency: []
+      .env.development:
+        content: "開発環境変数"
+        dependency: []
+      .env.production:
+        content: "本番環境変数"
+        dependency: []
+
+  utils:
+    web_scraper.py:
+      content: "Webサイトスクレイピングユーティリティ"
+      dependency:
+        - src/config/settings.py
+
+    directory_scanner.py:
+      content: "ディレクトリスキャンユーティリティ"
+      dependency:
+        - src/config/settings.py
+
+    file_manager.py:
+      content: "ファイル管理ユーティリティ"
+      dependency:
+        - src/config/settings.py
+
+  locales:
+    en.yaml:
+      content: "英語言語リソース"
+      dependency: []
+    ja.yaml:
+      content: "日本語言語リソース"
+      dependency: []
+
+  tests:
+    test_site_saver.py:
+      content: "サイト保存機能テスト"
+      dependency:
+        - src/app/site_saver.py
+
+    test_system_saver.py:
+      content: "システム保存機能テスト"
+      dependency:
+        - src/app/system_saver.py
+
+    test_logger.py:
+      content: "ログ機能テスト"
+      dependency:
+        - src/app/logger.py
+
+  docker:
+    Dockerfile:
+      content: "アプリケーションコンテナ定義"
+      dependency:
+        - src/config/settings.py
+
+    docker-compose.yml:
+      content: "マルチコンテナ構成定義"
+      dependency:
+        - src/docker/Dockerfile
+
+  docs:
+    README.md:
+      content: "プロジェクト説明ドキュメント"
+      dependency: []
+
+    api_spec.yaml:
+      content: "API仕様書"
+      dependency: []
+
+  requirements.txt:
+    content: "Pythonパッケージ依存関係"
+    dependency: []

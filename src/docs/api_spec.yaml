@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: Site System Storage API
+  version: 1.0.0
+  description: API for managing website content and system information storage
+
+servers:
+  - url: http://localhost:8000
+    description: Development server
+
+paths:
+  /sites:
+    post:
+      summary: Save website content
+      description: Scrapes and saves content from a specified URL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: URL to scrape
+              required:
+                - url
+      responses:
+        '200':
+          description: Website content saved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [success]
+                  save_path:
+                    type: string
+        '400':
+          description: Invalid request
+        '500':
+          description: Server error
+
+  /system:
+    get:
+      summary: Get system information
+      description: Retrieves current system metrics and information
+      responses:
+        '200':
+          description: System information retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  platform:
+                    type: object
+                    properties:
+                      system:
+                        type: string
+                      release:
+                        type: string
+                      version:
+                        type: string
+                  memory:
+                    type: object
+                    properties:
+                      total:
+                        type: integer
+                      available:
+                        type: integer
+                      percent:
+                        type: number
+                  cpu:
+                    type: object
+                    properties:
+                      cores:
+                        type: integer
+                      usage:
+                        type: number
+        '500':
+          description: Server error
+
+  /backups:
+    get:
+      summary: List backups
+      description: Lists all saved backups
+      responses:
+        '200':
+          description: Backup list retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    created_at:
+                      type: string
+                      format: date-time
+                    type:
+                      type: string
+                      enum: [site, system]
+                    size:
+                      type: integer
+    delete:
+      summary: Clean up old backups
+      description: Removes backups older than retention period
+      responses:
+        '200':
+          description: Cleanup completed successfully
+        '500':
+          description: Server error
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+security:
+  - ApiKeyAuth: []

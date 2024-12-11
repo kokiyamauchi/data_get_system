@@ -1,0 +1,78 @@
+# Core dependencies
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+psutil>=5.8.0
+python-magic>=0.4.27
+python-magic-bin>=0.4.14; sys_platform == 'win32'
+aiohttp>=3.8.5
+httpx>=0.24.1
+
+# YAML support
+pyyaml>=6.0.1
+
+# JSON logging
+python-json-logger>=2.0.7
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+pytest-aiohttp>=1.0.4
+
+# Type checking
+mypy>=1.5.1
+types-requests>=2.31.0
+types-beautifulsoup4>=4.12.0
+types-PyYAML>=6.0.12.12
+types-aiohttp>=3.8.5
+
+# Development tools
+black>=23.7.0
+isort>=5.12.0
+flake8>=6.1.0
+
+# Documentation
+sphinx>=7.1.2
+sphinx-rtd-theme>=1.3.0
+
+# Internationalization
+babel>=2.12.1
+
+# Progress bars
+tqdm>=4.66.1
+
+# File type detection
+filetype>=1.2.0
+python-magic>=0.4.27
+
+# HTML parsing
+lxml>=4.9.3
+html5lib>=1.1
+
+# Content processing
+chardet>=5.1.0
+cssutils>=2.7.1
+esprima>=4.0.1
+
+# Compression
+python-snappy>=0.6.1
+
+# Async support
+asyncio>=3.4.3
+aiofiles>=23.1.0
+aiodns>=3.0.0
+
+# Performance monitoring
+memory-profiler>=0.61.0
+line-profiler>=4.1.1
+
+# Security
+cryptography>=41.0.3
+certifi>=2023.7.22
+urllib3>=2.0.4
+
+# Error handling
+better-exceptions>=0.3.3
+
+# Resource management
+psutil>=5.9.5

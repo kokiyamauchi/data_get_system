@@ -1,0 +1,50 @@
+app:
+  name: Site System Storage
+  version: 1.0.0
+
+messages:
+  info:
+    app_start: "Application started"
+    app_stop: "Application stopped"
+    site_saved: "Website content saved: {path}"
+    system_saved: "System information saved: {path}"
+    backup_created: "Backup created: {path}"
+    cleanup_complete: "Cleanup completed, removed {count} old files"
+
+  error:
+    invalid_url: "Invalid URL provided: {url}"
+    scrape_failed: "Failed to scrape website: {url}"
+    save_failed: "Failed to save content: {error}"
+    system_info_failed: "Failed to collect system information: {error}"
+    backup_failed: "Failed to create backup: {error}"
+    cleanup_failed: "Failed to clean up old files: {error}"
+    file_not_found: "File not found: {path}"
+    permission_denied: "Permission denied: {path}"
+
+  warning:
+    disk_space_low: "Low disk space warning: {available}GB remaining"
+    high_cpu_usage: "High CPU usage detected: {usage}%"
+    high_memory_usage: "High memory usage detected: {usage}%"
+
+status:
+  success: "Success"
+  error: "Error"
+  in_progress: "In Progress"
+  completed: "Completed"
+  failed: "Failed"
+
+validation:
+  required: "This field is required"
+  invalid_format: "Invalid format"
+  min_length: "Minimum length is {length} characters"
+  max_length: "Maximum length is {length} characters"
+  invalid_type: "Invalid type, expected {expected}"
+
+units:
+  bytes: "bytes"
+  kb: "KB"
+  mb: "MB"
+  gb: "GB"
+  tb: "TB"
+  percent: "%"
+  count: "items"

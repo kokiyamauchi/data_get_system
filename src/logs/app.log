@@ -1,0 +1,18 @@
+2024-12-11 00:05:08,483 - app - INFO - アプリケーションを開始します
+2024-12-11 00:06:06,363 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 00:06:07,846 - app - INFO - 処理が正常に完了しました
+2024-12-11 00:21:30,725 - app - INFO - アプリケーションを開始します
+2024-12-11 00:21:44,885 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 00:21:44,899 - app - ERROR - システム情報の保存に失敗しました: 'Settings' object has no attribute 'SYSTEM_SAVE_CONFIG'
+2024-12-11 22:05:11,317 - app - INFO - アプリケーションを開始します
+2024-12-11 22:05:25,658 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 22:05:25,673 - app - ERROR - システム情報の保存に失敗しました: 'Settings' object has no attribute 'should_skip_file'
+2024-12-11 22:08:29,711 - app - INFO - アプリケーションを開始します
+2024-12-11 22:08:40,348 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 22:08:40,348 - app - ERROR - システム情報の保存に失敗しました: 'Settings' object has no attribute 'should_skip_file'
+2024-12-11 22:09:55,195 - app - INFO - アプリケーションを開始します
+2024-12-11 22:10:01,706 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 22:10:01,726 - app - ERROR - システム情報の保存に失敗しました: 'DirectoryScanner' object has no attribute '_format_directory_tree'
+2024-12-11 22:12:03,463 - app - INFO - アプリケーションを開始します
+2024-12-11 22:12:08,967 - app - INFO - システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system
+2024-12-11 22:12:08,988 - app - ERROR - システム情報の保存に失敗しました: [WinError 3] 指定されたパスが見つかりません。

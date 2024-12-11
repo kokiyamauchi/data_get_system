@@ -1,0 +1,50 @@
+app:
+  name: サイトシステムストレージ
+  version: 1.0.0
+
+messages:
+  info:
+    app_start: "アプリケーションを開始しました"
+    app_stop: "アプリケーションを停止しました"
+    site_saved: "ウェブサイトのコンテンツを保存しました: {path}"
+    system_saved: "システム情報を保存しました: {path}"
+    backup_created: "バックアップを作成しました: {path}"
+    cleanup_complete: "クリーンアップが完了し、{count}個の古いファイルを削除しました"
+
+  error:
+    invalid_url: "無効なURLが指定されました: {url}"
+    scrape_failed: "ウェブサイトのスクレイピングに失敗しました: {url}"
+    save_failed: "コンテンツの保存に失敗しました: {error}"
+    system_info_failed: "システム情報の収集に失敗しました: {error}"
+    backup_failed: "バックアップの作成に失敗しました: {error}"
+    cleanup_failed: "古いファイルの削除に失敗しました: {error}"
+    file_not_found: "ファイルが見つかりません: {path}"
+    permission_denied: "アクセス権限がありません: {path}"
+
+  warning:
+    disk_space_low: "ディスク容量が少なくなっています: 残り{available}GB"
+    high_cpu_usage: "CPU使用率が高くなっています: {usage}%"
+    high_memory_usage: "メモリ使用率が高くなっています: {usage}%"
+
+status:
+  success: "成功"
+  error: "エラー"
+  in_progress: "処理中"
+  completed: "完了"
+  failed: "失敗"
+
+validation:
+  required: "この項目は必須です"
+  invalid_format: "形式が無効です"
+  min_length: "最小{length}文字必要です"
+  max_length: "最大{length}文字までです"
+  invalid_type: "無効な型です。{expected}が必要です"
+
+units:
+  bytes: "バイト"
+  kb: "KB"
+  mb: "MB"
+  gb: "GB"
+  tb: "TB"
+  percent: "%"
+  count: "件"

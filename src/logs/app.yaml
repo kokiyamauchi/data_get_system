@@ -1,0 +1,90 @@
+- timestamp: '2024-12-11T00:05:08.483984'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T00:06:06.363904'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T00:06:07.846473'
+  level: INFO
+  logger: app
+  message: 処理が正常に完了しました
+---
+- timestamp: '2024-12-11T00:21:30.725745'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T00:21:44.885252'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T00:21:44.899453'
+  level: ERROR
+  logger: app
+  message: 'システム情報の保存に失敗しました: ''Settings'' object has no attribute ''SYSTEM_SAVE_CONFIG'''
+---
+- timestamp: '2024-12-11T22:05:11.317788'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T22:05:25.658780'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T22:05:25.673149'
+  level: ERROR
+  logger: app
+  message: 'システム情報の保存に失敗しました: ''Settings'' object has no attribute ''should_skip_file'''
+---
+- timestamp: '2024-12-11T22:08:29.711908'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T22:08:40.348824'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T22:08:40.348824'
+  level: ERROR
+  logger: app
+  message: 'システム情報の保存に失敗しました: ''Settings'' object has no attribute ''should_skip_file'''
+---
+- timestamp: '2024-12-11T22:09:55.195625'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T22:10:01.706864'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T22:10:01.726688'
+  level: ERROR
+  logger: app
+  message: 'システム情報の保存に失敗しました: ''DirectoryScanner'' object has no attribute ''_format_directory_tree'''
+---
+- timestamp: '2024-12-11T22:12:03.463907'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-11T22:12:08.967197'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-11T22:12:08.988356'
+  level: ERROR
+  logger: app
+  message: 'システム情報の保存に失敗しました: [WinError 3] 指定されたパスが見つかりません。'
+---

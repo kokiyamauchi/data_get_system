@@ -1,0 +1,345 @@
+project:
+  name: サイト・システム情報保存システム
+  version: "1.0.0"
+  purpose: |
+    サイト内のデータ（HTML, CSS, JavaScript, 画像, 動画）や
+    システムのディレクトリ構造とファイル内容を効率的に保存・管理するシステムを開発する。
+
+requirements:
+  general:
+    - ユーザーが「サイト情報の保存」または「システム情報の保存」を選択可能
+    - 保存先はデフォルトでシステムの実行ディレクトリだが、ユーザーが自由に指定可能
+    - 保存先指定UI（CLIまたはGUI）を提供（手間がかからない形で実装）
+
+  site_saving:
+    description: サイト内のすべてのデータを種類別に抽出し、完全保存
+    input:
+      - URL: サイトURLを入力
+      - 保存先: 保存先を指定可能（省略時はカレントディレクトリ）
+    
+    output:
+      directory_structure:
+        root: 指定された保存先
+        files:
+          yaml: サイト情報を保存したYAMLファイル
+          images: 抽出した画像を保存するフォルダ
+          videos: 抽出した動画を保存するフォルダ
+      
+      yaml_structure:
+        site:
+          html:
+            main: |
+              <html>...</html>
+            partials:
+              - path: https://example.com/partials/header.html
+                content: |
+                  <header>...</header>
+          css:
+            - path: https://example.com/styles/main.css
+              content: |
+                body { background-color: #fff; }
+          javascript:
+            - path: https://example.com/scripts/app.js
+              content: |
+                console.log("Hello, World!");
+          images:
+            - path: https://example.com/images/logo.png
+              local_path: ./images/logo.png
+          videos:
+            - path: https://example.com/videos/intro.mp4
+              local_path: ./videos/intro.mp4
+          metadata:
+            url: https://example.com
+            extracted_at: 2024-12-08T12:00:00
+    
+    requirements:
+      - HTML, CSS, JavaScript, テキストデータをそれぞれ対応する項目に保存
+      - 動的コンテンツ対応は不要（JavaScriptで生成される要素は再現しない）
+      - 画像や動画は元形式で保存し、ローカルパスを記録
+      - ファイル名の重複時は自動でリネーム
+    
+    error_handling:
+      download_failures:
+        - リソースへのアクセス失敗時は警告を記録し継続
+        - ファイル保存失敗時は代替パスでリトライ
+        - 致命的エラー時は処理を中断しログを残す
+      
+      validation:
+        - 無効なURLの検出
+        - サポート外のコンテンツタイプの識別
+        - ファイルサイズ制限の確認
+
+  system_saving:
+    description: システムのディレクトリ構造とファイル内容を1つのYAML形式で完全保存
+    input:
+      - パス: 保存対象のシステムパスを入力
+      - 保存先: 保存先を指定可能（省略時はカレントディレクトリ）
+    
+    output:
+      file: system_<timestamp>.yaml
+      yaml_structure:
+        system:
+          structure_tree:
+            - name: root
+              type: directory
+              children:
+                - name: src
+                  type: directory
+                  children:
+                    - name: main.py
+                      type: file
+                      size: 1024
+                      modified: "2024-12-08T12:00:00"
+          contents:
+            - path: /path/to/file.txt
+              format: .txt
+              size: 1024
+              content: ファイル内容をテキストとして保存
+    
+    requirements:
+      - ファイル内容は全文保存。ただしサイズ制限（例: 10MB）を設定可能
+      - バイナリデータや特定形式をスキップ可能
+      - ディレクトリツリー構造を無制限で保存
+    
+    error_handling:
+      access_failures:
+        - アクセス権限エラーは警告としてログに記録
+        - 読み取り不能ファイルはスキップして継続
+        - パス不正時は処理を中断
+
+performance_requirements:
+  site_saving:
+    download:
+      max_concurrent: 5
+      timeout_seconds: 30
+      retry_attempts: 3
+      min_bandwidth: "1MB/s"
+    
+    processing:
+      max_memory_usage: "1GB"
+      max_cpu_usage: "80%"
+  
+  system_saving:
+    scanning:
+      files_per_second: 1000
+      max_directory_depth: "無制限"
+    
+    processing:
+      max_file_size: "10MB"
+      total_files_limit: 1000000
+      max_memory_usage: "2GB"
+
+resource_management:
+  memory:
+    heap_size: "1GB"
+    stack_size: "100MB"
+    gc_strategy: "aggressive"
+  
+  storage:
+    temp_space: "5GB"
+    output_limit: "10GB"
+    cleanup_policy: "処理完了後に一時ファイルを削除"
+  
+  network:
+    max_bandwidth: "10MB/s"
+    connection_limit: 10
+    timeout_policy: "30秒でタイムアウト"
+
+security_requirements:
+  file_access:
+    restricted_paths:
+      - "/etc"
+      - "/var"
+      - "C:\\Windows"
+    
+    permissions:
+      required: "読み取り"
+      recommended: "書き込み"
+  
+  web_access:
+    protocols:
+      - "https"
+      - "http（警告付き）"
+    
+    restrictions:
+      - "外部リソースは指定ドメインのみ"
+      - "認証が必要なリソースはスキップ"
+  
+  validation:
+    input:
+      - "パスの正規化"
+      - "URLのサニタイズ"
+      - "ファイル名の検証"
+    
+    output:
+      - "パーミッション制御"
+      - "ファイル名エスケープ"
+
+compatibility:
+  system:
+    python_version: ">=3.8"
+    os_support:
+      windows: "10以降"
+      macos: "10.15以降"
+      linux: "Ubuntu 20.04以降"
+  
+  encoding:
+    input:
+      - "UTF-8"
+      - "Shift-JIS"
+      - "EUC-JP"
+    output:
+      default: "UTF-8"
+      fallback: "UTF-8（BOMなし）"
+
+testing_requirements:
+  unit_tests:
+    coverage:
+      target: "90%以上"
+      exclude_patterns:
+        - "**/tests/**"
+        - "**/vendor/**"
+    
+    requirements:
+      - "すべての公開メソッドをテスト"
+      - "エラーケースのテスト必須"
+      - "境界値テストの実施"
+  
+  integration_tests:
+    scenarios:
+      site_saving:
+        - "大規模サイト（1000ページ以上）"
+        - "複数の言語・文字コード"
+        - "様々なリソースタイプ"
+      
+      system_saving:
+        - "大規模ディレクトリ（10万ファイル以上）"
+        - "深いネストの処理"
+        - "様々なファイル形式"
+    
+    performance_tests:
+      - "最大負荷テスト"
+      - "長時間安定性テスト"
+      - "リソース使用量計測"
+
+logging:
+  description: 処理結果をログとして記録
+  output:
+    format: 
+      - yaml
+      - plain_text
+    content:
+      - 保存されたファイルのリスト
+      - エラーやスキップされたファイルの詳細
+    
+    structure:
+      yaml:
+        - timestamp: "処理時刻"
+        - level: "ログレベル"
+        - category: "処理カテゴリ"
+        - message: "詳細メッセージ"
+        - data: "関連データ"
+    
+    management:
+      rotation:
+        max_size: "10MB"
+        backup_count: 5
+        compression: true
+      
+      levels:
+        - DEBUG: "開発時の詳細情報"
+        - INFO: "通常の処理状況"
+        - WARNING: "注意が必要な状況"
+        - ERROR: "エラー発生"
+        - CRITICAL: "致命的なエラー"
+
+structure:
+  root:
+    - src/
+    - tests/
+    - docs/
+    - logs/
+    - requirements.txt
+    - saved_content/
+  
+  src:
+    app:
+      - main.py:
+          purpose: "アプリケーションのエントリーポイント"
+          features:
+            - "CLIとGUIのインターフェース提供"
+            - "処理モードの選択"
+            - "設定の読み込みと検証"
+      
+      - site_saver.py:
+          purpose: "サイト情報の保存処理"
+          features:
+            - "Webクローリング"
+            - "リソース抽出"
+            - "ファイル保存"
+      
+      - system_saver.py:
+          purpose: "システム情報の保存処理"
+          features:
+            - "ディレクトリ走査"
+            - "ファイル分析"
+            - "構造保存"
+      
+      - logger.py:
+          purpose: "ログ管理"
+          features:
+            - "マルチフォーマット対応"
+            - "ログローテーション"
+            - "エラー追跡"
+    
+    utils:
+      - web_scraper.py:
+          purpose: "Web情報取得"
+          features:
+            - "並行ダウンロード"
+            - "コンテンツ解析"
+            - "エラーリトライ"
+      
+      - file_manager.py:
+          purpose: "ファイル操作"
+          features:
+            - "安全な読み書き"
+            - "権限管理"
+            - "一時ファイル処理"
+      
+      - content_processor.py:
+          purpose: "コンテンツ処理"
+          features:
+            - "フォーマット変換"
+            - "文字コード処理"
+            - "メタデータ抽出"
+    
+    config:
+      - settings.py:
+          purpose: "設定管理"
+          features:
+            - "環境別設定"
+            - "パラメータ検証"
+            - "デフォルト値管理"
+
+deployment:
+  environments:
+    - development:
+        logging: "詳細"
+        debug: true
+        performance_limits: "緩和"
+    
+    - staging:
+        logging: "警告以上"
+        debug: false
+        performance_limits: "本番相当"
+    
+    - production:
+        logging: "エラーのみ"
+        debug: false
+        performance_limits: "厳格"
+  
+  packaging:
+    - wheel: "pip installable"
+    - docker: "コンテナ化"
+    - executable: "スタンドアロン実行ファイル"

@@ -1,0 +1,60 @@
+- timestamp: '2024-12-08T23:58:40.704631'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-09T00:01:00.430531'
+  level: INFO
+  logger: app
+  message: 'サイト情報の保存を開始: https://docs.lovable.dev/introduction'
+---
+- timestamp: '2024-12-09T00:01:24.658669'
+  level: ERROR
+  logger: app
+  message: 'サイト情報の保存に失敗しました: maximum recursion depth exceeded in __instancecheck__'
+---
+- timestamp: '2024-12-09T00:01:24.668225'
+  level: INFO
+  logger: app
+  message: 処理が正常に完了しました
+---
+- timestamp: '2024-12-09T00:14:29.191793'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-09T00:14:43.109771'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system\site_20241209_000100'
+---
+- timestamp: '2024-12-09T00:14:43.214570'
+  level: INFO
+  logger: app
+  message: 'システム情報を保存しました: C:\Users\MAC\Downloads\data_get_system\system_20241209_001443.yaml'
+---
+- timestamp: '2024-12-09T00:14:43.214570'
+  level: INFO
+  logger: app
+  message: 処理が正常に完了しました
+---
+- timestamp: '2024-12-09T21:11:26.358999'
+  level: INFO
+  logger: app
+  message: アプリケーションを開始します
+---
+- timestamp: '2024-12-09T21:12:31.249031'
+  level: INFO
+  logger: app
+  message: 'システム情報の保存を開始: C:\Users\MAC\Downloads\data_get_system'
+---
+- timestamp: '2024-12-09T21:12:31.725621'
+  level: INFO
+  logger: app
+  message: 'システム情報を保存しました: C:\Users\MAC\Downloads\data_get_system\system_20241209_211231.yaml'
+---
+- timestamp: '2024-12-09T21:12:31.725621'
+  level: INFO
+  logger: app
+  message: 処理が正常に完了しました
+---
